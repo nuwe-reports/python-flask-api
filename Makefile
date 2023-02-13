@@ -20,7 +20,7 @@ test:
 	@ docker compose run --rm skeleton-py-flask-api python -m unittest
 
 coverage: build migrate
-	@ docker compose run --rm skeleton-py-flask-api /bin/ash -c "coverage run --source='api' --omit='api/tests/*' -m unittest"
+	@ docker-compose run --rm skeleton-py-flask-api /bin/ash -c "coverage run --source='api' --omit='api/tests/*' -m pytest && pytest --json-report --json-report-file=output.json --json-report-indent=4"
 	@ docker compose run --rm skeleton-py-flask-api coverage report
 	@ docker compose run --rm skeleton-py-flask-api coverage xml
 	@ docker compose run --rm skeleton-py-flask-api coverage html
