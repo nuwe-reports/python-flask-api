@@ -18,6 +18,12 @@ jobs:
         run: |
           pip install pytest pytest-json-report
           make coverage
+          
+      - name: Upload artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: output.json
+          path: output.json
 
       - name: SonarQube Scan
         uses: sonarsource/sonarqube-scan-action@master
