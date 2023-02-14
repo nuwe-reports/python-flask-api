@@ -19,7 +19,7 @@ jobs:
       - name: Run testing suite
         run: |
           pip install pytest pytest-json-report
-          make coverage
+          make test
           
       - name: Update solution
         if: always()
